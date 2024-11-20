@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:syncfusion="clr-namespace:Syncfusion.Maui.DataGrid;assembly=Syncfusion.Maui.DataGrid"
+             xmlns:local="clr-namespace:ColumnSelectionSample"
+             x:Class="ColumnSelectionSample.MainPage">
+
+    <ContentPage.BindingContext>
+        <local:EmployeeViewModel x:Name="viewModel" />
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="50" />
+            </Grid.RowDefinitions>
+            <syncfusion:SfDataGrid x:Name="dataGrid"
+                                   Grid.Row="0"
+                                   SelectionMode="Multiple"                                   
+                                   NavigationMode="Cell"
+                                   SelectionUnit="Cell"
+                                   ItemsSource="{Binding Employees}">
+
+            </syncfusion:SfDataGrid>
+
+            <Button Clicked="Button_Clicked"
+                    Grid.Row="1"
+                    Text="Allow Column Selection" />
+        </Grid>
+    </ContentPage.Content>
+
+</ContentPage>
